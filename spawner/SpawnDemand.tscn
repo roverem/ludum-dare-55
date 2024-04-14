@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://yww4u6nvtpxw"]
+
+[ext_resource type="Script" path="res://spawner/SpawnDemand.gd" id="1_sa1jh"]
+[ext_resource type="PackedScene" uid="uid://b817kmk5t2lp6" path="res://units/ally.tscn" id="2_vn7qm"]
+
+[node name="SpawnDemand" type="Node2D"]
+script = ExtResource("1_sa1jh")
+spawn_units = Array[PackedScene]([ExtResource("2_vn7qm")])

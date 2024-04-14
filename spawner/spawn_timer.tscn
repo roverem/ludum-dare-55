@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b61sl2mjywqqy"]
+
+[ext_resource type="Script" path="res://spawner/SpawnTimer.gd" id="1_wm36s"]
+[ext_resource type="PackedScene" uid="uid://b817kmk5t2lp6" path="res://units/ally.tscn" id="2_3xsme"]
+
+[node name="Spawner" type="Node2D"]
+position = Vector2(215, 471)
+script = ExtResource("1_wm36s")
+spawn_units = Array[PackedScene]([ExtResource("2_3xsme")])
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.625

@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://drki3kerfyhvs"]
+
+[ext_resource type="Texture2D" uid="uid://b0bffjrgfm54j" path="res://map/map.png" id="1_iunn0"]
+[ext_resource type="Script" path="res://game.gd" id="1_viono"]
+[ext_resource type="PackedScene" uid="uid://b61sl2mjywqqy" path="res://spawner/spawn_timer.tscn" id="3_osjbj"]
+[ext_resource type="PackedScene" uid="uid://yww4u6nvtpxw" path="res://spawner/SpawnDemand.tscn" id="3_qt1rh"]
+[ext_resource type="PackedScene" uid="uid://28q3be0cd1cr" path="res://units/enemy.tscn" id="4_xcaku"]
+[ext_resource type="PackedScene" uid="uid://cp54kh41jj70m" path="res://panel/panel.tscn" id="5_wit0e"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_viono")
+
+[node name="Map" type="Node2D" parent="."]
+position = Vector2(-25, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Map"]
+position = Vector2(453, 485)
+scale = Vector2(1.57515, 1.57515)
+texture = ExtResource("1_iunn0")
+
+[node name="SpawnEnemy-center" parent="." instance=ExtResource("3_osjbj")]
+position = Vector2(246, 196)
+spawn_units = Array[PackedScene]([ExtResource("4_xcaku")])
+
+[node name="SpawnEnemy2-left" parent="." instance=ExtResource("3_osjbj")]
+position = Vector2(75, 196)
+spawn_units = Array[PackedScene]([ExtResource("4_xcaku")])
+
+[node name="SpawnEnemy3-right" parent="." instance=ExtResource("3_osjbj")]
+position = Vector2(378, 196)
+spawn_units = Array[PackedScene]([ExtResource("4_xcaku")])
+
+[node name="SpawnDemand" parent="." instance=ExtResource("3_qt1rh")]
+position = Vector2(76, 574)
+
+[node name="SpawnDemand2" parent="." instance=ExtResource("3_qt1rh")]
+position = Vector2(242, 568)
+
+[node name="SpawnDemand3" parent="." instance=ExtResource("3_qt1rh")]
+position = Vector2(404, 574)
+
+[node name="Panel" parent="." node_paths=PackedStringArray("_left_spawner", "_center_spawner", "_right_spawner") instance=ExtResource("5_wit0e")]
+position = Vector2(171, 454)
+_left_spawner = NodePath("../SpawnDemand")
+_center_spawner = NodePath("../SpawnDemand2")
+_right_spawner = NodePath("../SpawnDemand3")
