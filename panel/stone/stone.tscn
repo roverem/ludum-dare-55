@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://g00ong545pei"]
+
+[ext_resource type="Texture2D" uid="uid://lhw4ypenmb68" path="res://panel/stone/stone.png" id="1_bf0mt"]
+[ext_resource type="Script" path="res://panel/stone/stone.gd" id="2_jlkkh"]
+[ext_resource type="PackedScene" uid="uid://c3yccfc6xw127" path="res://panel/lines/line_1.tscn" id="3_nmqk8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yefr8"]
+size = Vector2(82, 73)
+
+[node name="Node2D" type="Sprite2D"]
+texture = ExtResource("1_bf0mt")
+script = ExtResource("2_jlkkh")
+line = ExtResource("3_nmqk8")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_yefr8")

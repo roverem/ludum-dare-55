@@ -7,7 +7,7 @@ signal confirm_spawn
 @onready var center_btn:Button = $CenterButton;
 @onready var right_btn:Button = $RightButton;
 
-@onready var _stones:Sprite2D = $Stones;
+@onready var _stones:Stones = $Stones;
 @onready var _rune:Rune = $Rune
 
 var current_lines:Array[PackedScene];
@@ -35,15 +35,17 @@ func _ready():
 
 func _on_dropped(line:PackedScene):
 	
-	var line_ins = line.instantiate()
 	current_lines.append(line);
-	_rune.add_line(line_ins)
+	_rune.add_line(line)
 	
 	if _rune.is_spawning:
 		confirm_spawn.emit();
 		_show_buttons();
-		
-		
+		_reset();
+
+func _reset():
+	_rune.reset();
+	current_lines = [];
 
 func _on_left_btn():
 	_trigger_click(_left_spawner);
@@ -53,7 +55,6 @@ func _on_center_btn():
 	
 func _on_right_btn():
 	_trigger_click(_right_spawner);
-	
 	
 func _trigger_click(spawner:Spawner):
 	button_clicked.emit(spawner);

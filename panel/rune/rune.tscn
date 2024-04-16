@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxubb5u016ja0"]
+
+[ext_resource type="Texture2D" uid="uid://fnhltj1dghp6" path="res://panel/rune/rune.png" id="1_3iu7t"]
+[ext_resource type="Script" path="res://panel/rune/Rune.gd" id="2_sgi5v"]
+[ext_resource type="Resource" uid="uid://etx4ht6ginye" path="res://panel/rune/rune_1.tres" id="3_qsso3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhmv8"]
+size = Vector2(337, 273)
+
+[node name="Rune" type="Sprite2D"]
+position = Vector2(-1, -0.5)
+texture = ExtResource("1_3iu7t")
+script = ExtResource("2_sgi5v")
+curr_completed = ExtResource("3_qsso3")
+
+[node name="Area2D" type="Area2D" parent="." groups=["dropable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.5, -0.5)
+shape = SubResource("RectangleShape2D_dhmv8")
+
+[node name="LinesDrawing" type="Node2D" parent="."]
+
+[node name="LineReference" type="Node2D" parent="."]
+position = Vector2(0, -207.5)

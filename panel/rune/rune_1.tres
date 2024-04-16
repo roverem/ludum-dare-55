@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RuneCompletedResource" load_steps=4 format=3 uid="uid://etx4ht6ginye"]
+
+[ext_resource type="Script" path="res://panel/rune/RuneCompleted.gd" id="1_6psya"]
+[ext_resource type="PackedScene" uid="uid://c3yccfc6xw127" path="res://panel/lines/line_1.tscn" id="1_gnrlr"]
+[ext_resource type="PackedScene" uid="uid://b60uj3ecxalpg" path="res://panel/lines/line_2.tscn" id="2_jj7kw"]
+
+[resource]
+script = ExtResource("1_6psya")
+completed = Array[PackedScene]([ExtResource("1_gnrlr"), ExtResource("2_jj7kw")])

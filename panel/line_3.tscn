@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://buy41xyjdgrlq"]
-
-[node name="Line2" type="Line2D"]
-position = Vector2(10, 0)
-points = PackedVector2Array(22, -1, -10, -27, -44, -27)
-default_color = Color(0.0313726, 0.0313726, 0.0313726, 1)

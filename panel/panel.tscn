@@ -1,15 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cp54kh41jj70m"]
+[gd_scene load_steps=8 format=3 uid="uid://cp54kh41jj70m"]
 
 [ext_resource type="Texture2D" uid="uid://c78vvxnxs7vvj" path="res://panel/panel_drawing.png" id="1_21pkk"]
 [ext_resource type="Script" path="res://panel/panel.gd" id="1_xg510"]
-[ext_resource type="PackedScene" uid="uid://g00ong545pei" path="res://panel/stone.tscn" id="3_3vak4"]
-[ext_resource type="Script" path="res://panel/Rune.gd" id="3_ubmoh"]
-[ext_resource type="PackedScene" uid="uid://b60uj3ecxalpg" path="res://panel/line_2.tscn" id="4_3jcq2"]
-[ext_resource type="PackedScene" uid="uid://buy41xyjdgrlq" path="res://panel/line_3.tscn" id="5_gah57"]
-[ext_resource type="Texture2D" uid="uid://fnhltj1dghp6" path="res://panel/rune.png" id="6_2cw0n"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhmv8"]
-size = Vector2(337, 273)
+[ext_resource type="PackedScene" uid="uid://cxubb5u016ja0" path="res://panel/rune/rune.tscn" id="2_7uye3"]
+[ext_resource type="PackedScene" uid="uid://g00ong545pei" path="res://panel/stone/stone.tscn" id="3_3vak4"]
+[ext_resource type="PackedScene" uid="uid://b60uj3ecxalpg" path="res://panel/lines/line_2.tscn" id="4_3jcq2"]
+[ext_resource type="Script" path="res://panel/Stones.gd" id="4_7gyfi"]
+[ext_resource type="PackedScene" uid="uid://buy41xyjdgrlq" path="res://panel/lines/line_3.tscn" id="5_gah57"]
 
 [node name="Panel" type="Node2D" node_paths=PackedStringArray("_stone_1", "_stone_2", "_stone_3")]
 script = ExtResource("1_xg510")
@@ -47,34 +44,21 @@ summoning
 UI"
 metadata/_edit_use_anchors_ = true
 
-[node name="Rune" type="Sprite2D" parent="."]
-position = Vector2(-1, -0.5)
-texture = ExtResource("6_2cw0n")
-script = ExtResource("3_ubmoh")
-
-[node name="Area2D" type="Area2D" parent="Rune" groups=["dropable"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rune/Area2D"]
-position = Vector2(2.5, -0.5)
-shape = SubResource("RectangleShape2D_dhmv8")
-
-[node name="Lines" type="Node2D" parent="Rune"]
+[node name="Rune" parent="." instance=ExtResource("2_7uye3")]
 
 [node name="Stones" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.470588)
 position = Vector2(67, -2.5)
 texture = ExtResource("1_21pkk")
+script = ExtResource("4_7gyfi")
 
-[node name="stone_1" parent="Stones" node_paths=PackedStringArray("dropable_area") instance=ExtResource("3_3vak4")]
+[node name="stone_1" parent="Stones" instance=ExtResource("3_3vak4")]
 position = Vector2(175, -88)
-dropable_area = NodePath("../../Rune/Area2D")
 
-[node name="stone_2" parent="Stones" node_paths=PackedStringArray("dropable_area") instance=ExtResource("3_3vak4")]
+[node name="stone_2" parent="Stones" instance=ExtResource("3_3vak4")]
 position = Vector2(175, 7)
 line = ExtResource("4_3jcq2")
-dropable_area = NodePath("../../Rune/Area2D")
 
-[node name="stone_3" parent="Stones" node_paths=PackedStringArray("dropable_area") instance=ExtResource("3_3vak4")]
+[node name="stone_3" parent="Stones" instance=ExtResource("3_3vak4")]
 position = Vector2(175, 97)
 line = ExtResource("5_gah57")
-dropable_area = NodePath("../../Rune/Area2D")

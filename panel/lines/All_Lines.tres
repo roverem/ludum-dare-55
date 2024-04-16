@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AllLinesResource" load_steps=5 format=3 uid="uid://bk5blejmrrg7b"]
+
+[ext_resource type="Script" path="res://panel/lines/All_Lines_resource.gd" id="1_2bvo1"]
+[ext_resource type="PackedScene" uid="uid://c3yccfc6xw127" path="res://panel/lines/line_1.tscn" id="1_3vb7w"]
+[ext_resource type="PackedScene" uid="uid://b60uj3ecxalpg" path="res://panel/lines/line_2.tscn" id="2_eahlf"]
+[ext_resource type="PackedScene" uid="uid://buy41xyjdgrlq" path="res://panel/lines/line_3.tscn" id="3_xwdy8"]
+
+[resource]
+script = ExtResource("1_2bvo1")
+lines = Array[PackedScene]([ExtResource("1_3vb7w"), ExtResource("2_eahlf"), ExtResource("3_xwdy8")])
