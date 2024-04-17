@@ -40,16 +40,7 @@ func _reset():
 	_rune.reset();
 	current_lines = [];
 
-func _on_left_btn():
-	_trigger_click(_left_spawner);
-	
-func _on_center_btn():
-	_trigger_click(_center_spawner)
-	
-func _on_right_btn():
-	_trigger_click(_right_spawner);
-	
-func _trigger_click(spawner:Spawner):
+func trigger_click(spawner:Spawner):
 	button_clicked.emit(spawner);
 	_stones.visible = true;
 	_rune.visible = true;

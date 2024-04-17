@@ -26,9 +26,6 @@ func _trigger_spawn_unit():
 	max_random_wait_time = clamp( randf() * 5, 0, max_random_wait_time );
 	print("SPAWNING UNIT ", spawn_timer.wait_time + max_random_wait_time)
 	spawn_timer.wait_time = spawn_waiting_time + max_random_wait_time;
-	_spawn_unit();
+	spawn_unit();
 	spawn_timer.stop()
 	spawn_timer.start()
-
-func _process(_delta):
-	pass
