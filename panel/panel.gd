@@ -3,10 +3,6 @@ extends Node2D
 signal button_clicked
 signal confirm_spawn
 
-@onready var left_btn:Button = $LeftButton;
-@onready var center_btn:Button = $CenterButton;
-@onready var right_btn:Button = $RightButton;
-
 @onready var _stones:Stones = $Stones;
 @onready var _rune:Rune = $Rune
 
@@ -21,9 +17,6 @@ var current_lines:Array[PackedScene];
 @export var _stone_3:Stone;
 
 func _ready():
-	left_btn.button_down.connect(_on_left_btn);
-	center_btn.button_down.connect(_on_center_btn);
-	right_btn.button_down.connect(_on_right_btn);
 	_stones.visible = false;
 	_rune.visible = false;
 	
@@ -63,15 +56,9 @@ func _trigger_click(spawner:Spawner):
 	_hide_buttons()
 
 func _hide_buttons():
-	left_btn.visible = false;
-	center_btn.visible = false;
-	right_btn.visible = false;
 	_stones.visible = true;
 	_rune.visible = true;
 
 func _show_buttons():
-	left_btn.visible = true;
-	center_btn.visible = true;
-	right_btn.visible = true;
 	_stones.visible = false;
 	_rune.visible = false;

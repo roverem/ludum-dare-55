@@ -1,7 +1,10 @@
-class_name Spawner
-extends Node2D
+class_name SpawnDemand
+extends Spawner
 
-@export var spawn_units: Array[PackedScene];
+@onready var button:Button = $Button;
 
-func _spawn_unit():
-	add_child(spawn_units[0].instantiate() );
+func _ready():
+	button.pressed.connect(_on_pressed)
+
+func _on_pressed():
+	Globals.open_panel.emit(self)

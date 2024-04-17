@@ -2,6 +2,7 @@ extends Node
 
 var is_dragging = false
 
+signal open_panel
 
 #PAUSE
 signal just_paused
